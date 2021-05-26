@@ -6,8 +6,8 @@ public class Main {
         System.out.println("It's going to Schmitz");
         Disease disease = new Disease(false, false, false, true, false, false, false, false, false, false, false, false, false, false);
         Game game = new  Game();
-        Country[] countires = game.createCountries();
-
+        Country[] countries = game.createCountries(); //creates an array of the questions
+        game.displayCountries(countries);
     }
 
 }

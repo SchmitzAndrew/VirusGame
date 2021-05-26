@@ -19,7 +19,8 @@ public class Disease {
     boolean myAnimal;
     boolean myIngestion;
 
-    public Disease(boolean myColdResistance, boolean myHeatResistance, boolean myCureResistance, boolean myRunnyNose, boolean myCough, boolean myFever, boolean myHeadache, boolean myVomiting, boolean myDeath, boolean myAir, boolean myBlood, boolean myDroplet, boolean myAnimal, boolean myIngestion) {
+    public Disease(String name, boolean myColdResistance, boolean myHeatResistance, boolean myCureResistance, boolean myRunnyNose, boolean myCough, boolean myFever, boolean myHeadache, boolean myVomiting, boolean myDeath, boolean myAir, boolean myBlood, boolean myDroplet, boolean myAnimal, boolean myIngestion) {
+        this.myName = name;
         this.myColdResistance = myColdResistance;
         this.myHeatResistance = myHeatResistance;
         this.myCureResistance = myCureResistance;
@@ -39,8 +40,7 @@ public class Disease {
     //This is good non-repetitive code
     //Thank you to IntelliJ's generate feature
 
-    public boolean isMyHeatResistance() {
-        return myHeatResistance;
+    public boolean isMyHeatResistance() { return myHeatResistance;
     }
 
     public void setMyHeatResistance(boolean myHeatResistance) {

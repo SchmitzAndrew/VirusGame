@@ -11,6 +11,7 @@ public class Game {
     int myGameLength = 600;
     int myPoints=0;
     int pointsCounter;
+    int tick;
 
     Country[] countries;
 
@@ -46,6 +47,11 @@ public class Game {
                     winCondition = true;
                 }
 
+                System.out.println("Tick: " + tick);
+                System.out.println("_________________________________________________");
+                System.out.println();
+                displayCountries(countries);
+                tick ++;
             }
         }, 1000, 10000);
     }
@@ -90,6 +96,7 @@ public class Game {
         for (Country c : countries) {
             System.out.print(c.toString());
         }
+        System.out.println();
     }
 
     public int findWorldPopulation() {

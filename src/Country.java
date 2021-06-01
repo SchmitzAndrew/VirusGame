@@ -93,6 +93,7 @@ public class Country {
     public void setMyPercentInf(double myPercentInf) {
         this.myPercentInf = myPercentInf;
     }
+
     public String toString() {
         return "Population= " + myPopulation + " Percent Infected= " + myPercentInf + " Hot Resistance= " + myHotRes + " Cold Resistance+ " + myColdRes;
     }

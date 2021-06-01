@@ -1,4 +1,19 @@
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class Disease {
+
+    //Disease Timer
+    Timer timer = new Timer();
+
+    //Disease Name Determined by User
+    String myName;
+
+
+    //Spread and Death Rate
+    int mySpreadRate;
+    int myDeathRate;
+
     //Upgrades
     boolean myColdResistance;
     boolean myHeatResistance;
@@ -19,8 +34,10 @@ public class Disease {
     boolean myAnimal;
     boolean myIngestion;
 
-    public Disease(String name, boolean myColdResistance, boolean myHeatResistance, boolean myCureResistance, boolean myRunnyNose, boolean myCough, boolean myFever, boolean myHeadache, boolean myVomiting, boolean myDeath, boolean myAir, boolean myBlood, boolean myDroplet, boolean myAnimal, boolean myIngestion) {
+    public Disease(String name, int mySpreadRate, int myDeathRate, boolean myColdResistance, boolean myHeatResistance, boolean myCureResistance, boolean myRunnyNose, boolean myCough, boolean myFever, boolean myHeadache, boolean myVomiting, boolean myDeath, boolean myAir, boolean myBlood, boolean myDroplet, boolean myAnimal, boolean myIngestion) {
         this.myName = name;
+        this.mySpreadRate = mySpreadRate;
+        this.myDeathRate = myDeathRate;
         this.myColdResistance = myColdResistance;
         this.myHeatResistance = myHeatResistance;
         this.myCureResistance = myCureResistance;
@@ -40,7 +57,24 @@ public class Disease {
     //This is good non-repetitive code
     //Thank you to IntelliJ's generate feature
 
-    public boolean isMyHeatResistance() { return myHeatResistance;
+    public int getMySpreadRate() {
+        return mySpreadRate;
+    }
+
+    public int getMyDeathRate() {
+        return myDeathRate;
+    }
+
+    public boolean isMyColdResistance() {
+        return myColdResistance;
+    }
+
+    public void setMyColdResistance(boolean myColdResistance) {
+        this.myColdResistance = myColdResistance;
+    }
+
+    public boolean isMyHeatResistance() {
+        return myHeatResistance;
     }
 
     public void setMyHeatResistance(boolean myHeatResistance) {
@@ -141,6 +175,43 @@ public class Disease {
 
     public void setMyIngestion(boolean myIngestion) {
         this.myIngestion = myIngestion;
+    }
+
+    public void setDeathRate() {
+        this.myDeathRate = 5;
+        if (myCough)
+            myDeathRate += 10;
+        if (myHeadache)
+            myDeathRate += 10;
+        if (myRunnyNose)
+            myDeathRate += 10;
+        if (myFever)
+            myDeathRate += 10;
+        if (myVomiting)
+            myDeathRate += 10;
+    }
+
+    public void setSpreadRate() {
+        this.mySpreadRate = 5;
+        if (myAnimal) {
+            mySpreadRate += 10;
+        }
+        if (myAir) {
+            mySpreadRate += 10;
+        }
+
+        if (myBlood) {
+            mySpreadRate += 10;
+        }
+
+        if (myIngestion) {
+            mySpreadRate += 10;
+        }
+
+        if (myDroplet) {
+            mySpreadRate += 10;
+        }
+
     }
 
 }

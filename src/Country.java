@@ -1,22 +1,22 @@
 public class Country {
     private final String myName;
 
-    private double myHotRes; //from 0-4
-    private double myColdRes; //from 0-4
-    private double myPopulation;
-    private double myInfected;
+    private boolean myHotRes;
+    private boolean myColdRes;
+    private int myPopulation;
+    private int myInfected;
     private double myPercentInf;
 
     public Country() {
         myName = "";
-        myHotRes = 0;
-        myColdRes = 0;
-        myPopulation = 0;
+        myHotRes = false;
+        myColdRes = false;
+        myPopulation = 1;
         myInfected = 0;
         myPercentInf = myInfected / myPopulation;
     }
 
-    public Country(String name, double hot, double cold, double population, double infected) {
+    public Country(String name, boolean hot, boolean cold, int population, int infected) {
         myName = name;
         myHotRes = hot;
         myColdRes = cold;
@@ -25,60 +25,67 @@ public class Country {
         myPercentInf = myInfected / myPopulation;
     }
 
-    public void setInfected(double i) {
-        myInfected += i;
+    public void setInfected(int i) {
+        myInfected = i;
     }
 
-    public double getMyInfected() {
+    public int getMyInfected() {
         return myInfected;
     }
 
-    public void spread(Country other, Disease disease) {
-        double chance = Math.random();
-        double probability;
-        compareResistance(disease);
-        if (other.myColdRes == 0) {
-            probability = (myPercentInf * (other.myHotRes / 4)) / disease.diseaseSpread(); //+method for accessing level of disease hotRes/transmition
-        } else if (other.myHotRes == 0) {
-            probability = (myPercentInf * (other.myColdRes / 4)) / disease.diseaseSpread(); //+method for accessing level of disease coldRes/transmittion
-        } else {
-            probability = (myPercentInf * (myHotRes / 4) * (other.myColdRes / 4)) / disease.diseaseStrength();
-        }
-        if (chance <= probability) {
-            other.setInfected((.5 * other.myInfected) + 1000);
+    public void spread(Disease disease) {
+        if (compareResistance(disease)) {
+
+            setMyInfected((int)((Math.random() * 10) + (1+(disease.getMySpreadRate() )/ 10) * (getMyInfected())));
+
         }
     }
 
-    private void compareResistance(Disease disease) {
-        if (disease.isMyColdResistance()&&myColdRes>=1)
-        {
-            myColdRes-=1;
-        }
-        if (disease.isMyHeatResistance()&&myHotRes>=1)
-        {
-            myHotRes-=1;
-        }
+    public void death(Disease disease) {
+        myPopulation-=((disease.getMyDeathRate()/100)*myInfected);
     }
-    public double getMyPopulation() {
+
+    private boolean compareResistance(Disease disease) {
+        if (myColdRes && myHotRes) {
+            if (disease.isMyColdResistance() && disease.isMyHeatResistance())
+                return true;
+            else
+                return false;
+        } else if (myColdRes) {
+            if (disease.isMyColdResistance()) {
+                return true;
+            } else
+                return false;
+        } else if (myHotRes) {
+            if (disease.isMyHeatResistance())
+                return true;
+            else
+                return false;
+        } else
+            return true;
+    }
+
+    public int getMyPopulation() {
         return myPopulation;
     }
 
     public void setMyPopulation(int myPopulation) {
         this.myPopulation = myPopulation;
     }
-    public double getMyHotRes() {
+
+    public boolean getMyHotRes() {
         return myHotRes;
     }
 
-    public void setMyHotRes(double myHotRes) {
+    public void setMyHotRes(boolean myHotRes) {
         this.myHotRes = myHotRes;
     }
 
-    public double getMyColdRes() {
+    public boolean getMyColdRes() {
         return myColdRes;
     }
 
-    public void setMyColdRes(double myColdRes) {
+    public void setMyColdRes(boolean myColdRes) {
         this.myColdRes = myColdRes;
     }
 
@@ -90,11 +97,11 @@ public class Country {
         return myPercentInf;
     }
 
-    public void setMyPercentInf(double myPercentInf) {
-        this.myPercentInf = myPercentInf;
+    public void setMyPercentInf() {
+        myPercentInf=myInfected/myPopulation;
     }
 
     public String toString() {
-        return "Population= " + myPopulation + " Percent Infected= " + myPercentInf + " Hot Resistance= " + myHotRes + " Cold Resistance+ " + myColdRes;
+        return "Name is " + myName + " Population= " + myPopulation + " Infected= " + myInfected + " Hot Resistance= " + myHotRes + " Cold Resistance= " + myColdRes;
     }
 }

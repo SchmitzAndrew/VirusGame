@@ -82,7 +82,7 @@ public class Country {
         this.myColdRes = myColdRes;
     }
 
-    public void setMyInfected(double myInfected) {
+    public void setMyInfected(int myInfected) {
         this.myInfected = myInfected;
     }
 

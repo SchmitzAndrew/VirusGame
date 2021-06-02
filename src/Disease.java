@@ -188,7 +188,7 @@ public class Disease {
     }
 
     public void setSpreadRate() {
-        this.mySpreadRate = 5;
+        this.mySpreadRate = 10;
         if (myAnimal) {
             mySpreadRate += 10;
         }

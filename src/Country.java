@@ -63,7 +63,7 @@ public class Country {
         return myPopulation;
     }
 
-    public void setMyPopulation(double myPopulation) {
+    public void setMyPopulation(int myPopulation) {
         this.myPopulation = myPopulation;
     }
     public double getMyHotRes() {

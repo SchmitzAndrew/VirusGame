@@ -63,7 +63,7 @@ public class Game {
         countries[1] = new Country("USA", true, false, 320_000_000, 0);
         countries[2] = new Country("Canada", false, true, 37_000_000, 0);
         countries[3] = new Country("Greenland", false, true, 56_000, 0);
-        countries[4] = new Country("England", false, true, 66_000_000, 0);
+        countries[4] = new Country("England", true, true, 66_000_000, 0);
         countries[5] = new Country("China", false, false, 1_400_000_000, 0);
         countries[6] = new Country("India", true, false, 1_360_000_000, 0);
 

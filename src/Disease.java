@@ -1,10 +1,8 @@
-import java.util.Timer;
-import java.util.TimerTask;
+
 
 public class Disease {
 
-    //Disease Timer
-    Timer timer = new Timer();
+
 
     //Disease Name Determined by User
     String myName;
@@ -137,9 +135,7 @@ public class Disease {
         this.myDeath = myDeath;
     }
 
-    public boolean isMyAir() {
-        return myAir;
-    }
+    public boolean isMyAir() { return myAir; }
 
     public void setMyAir(boolean myAir) {
         this.myAir = myAir;

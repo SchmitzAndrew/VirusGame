@@ -31,6 +31,7 @@ public class Game {
                 diseaseSpread(disease);
                 worldDeath(disease);
                 findWorldPopulation();
+
                 int points = getPoints(findInfectedPopulation());
                 if (currentGameLength < myGameLength) {
                     myCureProgress = currentGameLength / myGameLength;
@@ -70,15 +71,17 @@ public class Game {
         return countries;
     }
 
-    public void diseaseSpread() {
-        for (int index =0; index<=5;index++)
-        {
-            if (countries[index+1].getMyInfected()==0) {
-                countries[index].spread(countries[index]);
-                countries[index].spread(countries[index + 1]);
+    private void diseaseSpread(Disease disease) {
+        disease.setSpreadRate();
+        for (int index = 0; index <= 5; index++) {
+            if (countries[index].getMyInfected()>0 && countries[index + 1].getMyInfected() == 0.0) {
+                countries[index].spread(disease);
+
+                countries[index+1].spread(disease);
             }
-            else {
-                countries[index].spread(countries[index]);
+            else if (countries[index].getMyInfected()>0) {
+
+                countries[index].spread(disease);
             }
         }
     }
@@ -94,7 +97,7 @@ public class Game {
 
     public void displayCountries(Country[] countries) {
         for (Country c : countries) {
-            System.out.print(c.toString());
+            System.out.println(c.toString());
         }
         System.out.println();
     }
@@ -105,6 +108,15 @@ public class Game {
             myWorldPopulation += c.getMyPopulation();
         }
         return (int) myWorldPopulation;
+    }
+
+    public int findInfectedPopulation()
+    {
+        myInfectedPopulation=0;
+        for(Country c : countries){
+            myInfectedPopulation += c.getMyInfected();
+        }
+        return myInfectedPopulation;
     }
 
     public int getPoints(int infected){

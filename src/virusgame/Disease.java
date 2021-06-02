@@ -1,10 +1,10 @@
-
+package virusgame;
 
 public class Disease {
 
 
 
-    //Disease Name Determined by User
+    //virusgame.Disease Name Determined by User
     String myName;
 
 

@@ -1,4 +1,8 @@
-import java.awt.*;
+package virusgame;
+
+import virusgame.Country;
+import virusgame.Disease;
+
 import java.util.Timer;
 import java.util.TimerTask;
 

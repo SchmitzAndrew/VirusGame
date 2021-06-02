@@ -1,4 +1,8 @@
+package virusgame;
 
+import virusgame.Country;
+import virusgame.Disease;
+import virusgame.Game;
 
 public class Main {
     public static void main(String[] args){
@@ -9,8 +13,8 @@ public class Main {
         game.displayCountries(countries);
         game.gameTimer(disease);
 
-    }
 
+    }
 }
 
 

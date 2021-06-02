@@ -1,3 +1,5 @@
+package virusgame;
+
 public class Country {
     private final String myName;
 

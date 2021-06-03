@@ -56,6 +56,7 @@ public class Game extends Main {
                 System.out.println("_________________________________________________");
                 System.out.println();
                 displayCountries(countries);
+
                 System.out.println(points);
                 tick ++;
             }
@@ -141,6 +142,11 @@ public class Game extends Main {
             pointsCounter ++;
         }
         return myPoints;
+    }
+
+    public int myPointsDecrease()
+    {
+       return myPoints--;
     }
 }
 

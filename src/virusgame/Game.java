@@ -56,6 +56,7 @@ public class Game {
                 System.out.println("_________________________________________________");
                 System.out.println();
                 displayCountries(countries);
+                System.out.println(points);
                 tick ++;
             }
         }, 1000, 10000);
@@ -78,14 +79,13 @@ public class Game {
     private void diseaseSpread(Disease disease) {
         disease.setSpreadRate();
         for (int index = 0; index <= 5; index++) {
-            if (countries[index].getMyInfected()>0 && countries[index + 1].getMyInfected() == 0.0) {
-                countries[index].spread(disease);
-
-                countries[index+1].spread(disease);
-            }
-            else if (countries[index].getMyInfected()>0) {
+            if (countries[index].getMyInfected() > 0 && countries[index].getMyInfected() < countries[index].getMyPopulation()) {
 
                 countries[index].spread(disease);
+                if (countries[index + 1].getMyInfected() == 0.0 && countries[index + 1].getMyInfected() < countries[index + 1].getMyPopulation()) {
+
+                    countries[index + 1].spread(disease);
+                }
             }
         }
     }

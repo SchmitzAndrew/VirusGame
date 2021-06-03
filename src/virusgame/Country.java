@@ -38,8 +38,14 @@ public class Country {
     public void spread(Disease disease) {
         if (compareResistance(disease)) {
 
-            setMyInfected((int)((Math.random() * 10) + (1+(disease.getMySpreadRate() )/ 10) * (getMyInfected())));
+            int test = (int)((Math.random() * 10) + (1+(disease.getMySpreadRate() )/ 10) * (getMyInfected()));
+            if (test>=myPopulation) {
+                setMyInfected(myPopulation);
+            }
+            else {
 
+                setMyInfected(test);
+            }
         }
     }
 

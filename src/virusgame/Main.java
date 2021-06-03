@@ -12,9 +12,6 @@ public class Main {
         Country[] countries = game.createCountries(); //creates an array of the questions
         game.displayCountries(countries);
         game.gameTimer(disease);
-
-
-
     }
 }
 

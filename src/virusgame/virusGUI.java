@@ -1,4 +1,7 @@
 package virusgame;
 
-public class virusGUI {
+public class virusGUI extends Main {
+
+
+
 }

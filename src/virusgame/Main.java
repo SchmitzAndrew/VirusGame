@@ -14,5 +14,5 @@ public class Main {
         game.gameTimer(disease);
     }
 }
-
+//*hacker voice* I'm in
 

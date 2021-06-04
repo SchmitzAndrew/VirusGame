@@ -1,6 +1,6 @@
 package virusgame;
 
-public class Country {
+public class Country extends Game {
     private final String myName;
 
     private boolean myHotRes;
@@ -35,6 +35,7 @@ public class Country {
         return myInfected;
     }
 
+    //determines how fast the disease spreads outside the country
     public void spread(Disease disease) {
         if (compareResistance(disease)) {
 
@@ -49,10 +50,12 @@ public class Country {
         }
     }
 
+    //determines how many people die
     public void death(Disease disease) {
         myPopulation-=((disease.getMyDeathRate()/100)*myInfected);
     }
 
+    //determines whether or not there are enough upgrades for it to work
     private boolean compareResistance(Disease disease) {
         if (myColdRes && myHotRes) {
             if (disease.isMyColdResistance() && disease.isMyHeatResistance())

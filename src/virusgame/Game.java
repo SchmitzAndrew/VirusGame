@@ -6,7 +6,7 @@ import virusgame.Disease;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Game {
+public class Game extends Main {
 
     double myPeopleKilled;
     double myWorldPopulation;
@@ -56,6 +56,7 @@ public class Game {
                 System.out.println("_________________________________________________");
                 System.out.println();
                 displayCountries(countries);
+
                 System.out.println(points);
                 tick ++;
             }
@@ -141,6 +142,11 @@ public class Game {
             pointsCounter ++;
         }
         return myPoints;
+    }
+
+    public int myPointsDecrease()
+    {
+       return myPoints--;
     }
 }
 

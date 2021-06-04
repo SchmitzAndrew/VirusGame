@@ -1,6 +1,6 @@
 package virusgame;
 
-public class Disease {
+public class Disease extends Main {
 
 
 
@@ -31,6 +31,11 @@ public class Disease {
     boolean myDroplet;
     boolean myAnimal;
     boolean myIngestion;
+
+    public Disease ()
+    {
+
+    }
 
     public Disease(String name, int mySpreadRate, int myDeathRate, boolean myColdResistance, boolean myHeatResistance, boolean myCureResistance, boolean myRunnyNose, boolean myCough, boolean myFever, boolean myHeadache, boolean myVomiting, boolean myDeath, boolean myAir, boolean myBlood, boolean myDroplet, boolean myAnimal, boolean myIngestion) {
         this.myName = name;

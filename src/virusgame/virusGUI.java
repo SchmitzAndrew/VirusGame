@@ -1,3 +1,4 @@
+
 package virusgame;
 
 import virusgame.Country;
@@ -7,6 +8,22 @@ import javax.swing.*;
 
 public class virusGUI {
     private JPanel virusPanel;
+    private JButton brazilButton;
+    private JProgressBar cureBar;
+    private JProgressBar infectedBar;
+    private JLabel infectedLabel;
+    private JLabel deadLabel;
+    private JButton upgradesButton;
+    private JLabel pointsLabel;
+    private JProgressBar progressBar4;
+    private JButton canadaButton;
+    private JButton chinaButton;
+    private JButton greenlandButton;
+    private JButton englandButton;
+    private JButton indiaButton;
+    private JButton USAButton;
+    private JLabel countryInfectedLabel;
+    private JProgressBar progressBar1;
 
     public static void main(String[] args){
         System.out.println("It's going to Schmitz Test");
@@ -24,4 +41,3 @@ public class virusGUI {
     }
 }
 //*hacker voice* I'm in
-

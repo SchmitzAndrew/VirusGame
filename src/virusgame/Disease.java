@@ -1,6 +1,6 @@
 package virusgame;
 
-public class Disease extends Main {
+public class Disease {
 
 
 

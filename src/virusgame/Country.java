@@ -1,6 +1,6 @@
 package virusgame;
 
-public class Country extends Game {
+public class Country {
     private final String myName;
 
     private boolean myHotRes;

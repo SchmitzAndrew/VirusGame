@@ -6,7 +6,7 @@ import virusgame.Disease;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Game extends Main {
+public class Game  {
 
     double myPeopleKilled;
     double myWorldPopulation;

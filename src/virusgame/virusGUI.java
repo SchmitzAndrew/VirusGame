@@ -1,10 +1,9 @@
 
 package virusgame;
 
-import virusgame.Country;
-import virusgame.Disease;
-import virusgame.Game;
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class virusGUI {
     private JPanel virusPanel;
@@ -23,21 +22,117 @@ public class virusGUI {
     private JButton indiaButton;
     private JButton USAButton;
     private JLabel countryInfectedLabel;
-    private JProgressBar progressBar1;
+    private JProgressBar deadBar;
+    private JLabel coldResLabel;
+    private JLabel heatResLabel;
+    private JLabel cureLabel;
+    private JLabel popLabel;
+    private JButton transmissionButton;
 
-    public static void main(String[] args){
-        System.out.println("It's going to Schmitz Test");
-        Disease disease = new Disease(" ", 0, 0, true, false, true, false, false, false, false, false, false, false, false, false, false, false);
-        Game game = new  Game();
-        Country[] countries = game.createCountries(); //creates an array of the questions
-        game.displayCountries(countries);
-        game.gameTimer(disease);
 
+    public virusGUI(Country[] countries) {
+
+        int symptomUpgrade = 0;
+        transmissionButton.setVisible(false);
+
+
+
+        brazilButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                countryInfectedLabel.setText("Infected: " + countries[0].getMyInfected());
+                deadLabel.setText("Dead: ");
+                coldResLabel.setText("Cold Resistance: " + countries[0].getMyColdRes());
+                heatResLabel.setText("Heat Resistance: " + countries[0].getMyHotRes());
+                popLabel.setText("Population: " + countries[0].getMyPopulation());
+            }
+        });
+        USAButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                countryInfectedLabel.setText("Infected: " + countries[1].getMyInfected());
+                deadLabel.setText("Dead: ");
+                coldResLabel.setText("Cold Resistance: " + countries[1].getMyColdRes());
+                heatResLabel.setText("Heat Resistance: " + countries[1].getMyHotRes());
+                popLabel.setText("Population: " + countries[1].getMyPopulation());
+            }
+        });
+        canadaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                countryInfectedLabel.setText("Infected: " + countries[2].getMyInfected());
+                deadLabel.setText("Dead: ");
+                coldResLabel.setText("Cold Resistance: " + countries[2].getMyColdRes());
+                heatResLabel.setText("Heat Resistance: " + countries[2].getMyHotRes());
+                popLabel.setText("Population: " + countries[2].getMyPopulation());
+            }
+        });
+        greenlandButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                countryInfectedLabel.setText("Infected: " + countries[3].getMyInfected());
+                deadLabel.setText("Dead: ");
+                coldResLabel.setText("Cold Resistance: " + countries[3].getMyColdRes());
+                heatResLabel.setText("Heat Resistance: " + countries[3].getMyHotRes());
+                popLabel.setText("Population: " + countries[3].getMyPopulation());
+            }
+        });
+        englandButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                countryInfectedLabel.setText("Infected: " + countries[4].getMyInfected());
+                deadLabel.setText("Dead: ");
+                coldResLabel.setText("Cold Resistance: " + countries[4].getMyColdRes());
+                heatResLabel.setText("Heat Resistance: " + countries[4].getMyHotRes());
+                popLabel.setText("Population: " + countries[4].getMyPopulation());
+            }
+        });
+        chinaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                countryInfectedLabel.setText("Infected: " + countries[5].getMyInfected());
+                deadLabel.setText("Dead: ");
+                coldResLabel.setText("Cold Resistance: " + countries[5].getMyColdRes());
+                heatResLabel.setText("Heat Resistance: " + countries[5].getMyHotRes());
+                popLabel.setText("Population: " + countries[5].getMyPopulation());
+            }
+        });
+        indiaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                countryInfectedLabel.setText("Infected: " + countries[6].getMyInfected());
+                deadLabel.setText("Dead: ");
+                coldResLabel.setText("Cold Resistance: " + countries[6].getMyColdRes());
+                heatResLabel.setText("Heat Resistance: " + countries[6].getMyHotRes());
+                popLabel.setText("Population: " + countries[6].getMyPopulation());
+            }
+        });
+        transmissionButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        upgradesButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (transmissionButton.isVisible() == false) {
+                    transmissionButton.setVisible(true);
+                }
+                if (transmissionButton.isVisible() == true) {
+                    transmissionButton.setVisible(false);
+                }
+            }
+        });
+    }
+
+
+
+    public void runGUI(Country[] countries) {
         JFrame frame = new JFrame("It's Going to Schmitz");
-        frame.setContentPane(new virusGUI().virusPanel);
+        frame.setContentPane(new virusGUI(countries).virusPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
     }
 }
-//*hacker voice* I'm in

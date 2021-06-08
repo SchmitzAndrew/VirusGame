@@ -7,7 +7,9 @@ public class Country {
     private boolean myColdRes;
     private int myPopulation;
     private int myInfected;
+    private int myDead;
     private double myPercentInf;
+
 
     public Country() {
         myName = "";
@@ -15,16 +17,19 @@ public class Country {
         myColdRes = false;
         myPopulation = 1;
         myInfected = 0;
+        myDead = 0;
         myPercentInf = myInfected / myPopulation;
+
     }
 
-    public Country(String name, boolean hot, boolean cold, int population, int infected) {
+    public Country(String name, boolean hot, boolean cold, int population, int infected, int dead) {
         myName = name;
         myHotRes = hot;
         myColdRes = cold;
         myPopulation = population;
         myInfected = infected;
         myPercentInf = myInfected / myPopulation;
+        myDead = dead;
     }
 
     public void setInfected(int i) {
@@ -39,11 +44,10 @@ public class Country {
     public void spread(Disease disease) {
         if (compareResistance(disease)) {
 
-            int test = (int)((Math.random() * 10) + (1+(disease.getMySpreadRate() )/ 10) * (getMyInfected()));
-            if (test>=myPopulation) {
+            int test = (int) ((Math.random() * 10) + (1 + (disease.getMySpreadRate()) / 10) * (getMyInfected()));
+            if (test >= myPopulation) {
                 setMyInfected(myPopulation);
-            }
-            else {
+            } else {
 
                 setMyInfected(test);
             }
@@ -52,7 +56,7 @@ public class Country {
 
     //determines how many people die
     public void death(Disease disease) {
-        myPopulation-=((disease.getMyDeathRate()/100)*myInfected);
+        myDead += ((disease.getMyDeathRate() / 100) * myInfected);
     }
 
     //determines whether or not there are enough upgrades for it to work
@@ -109,10 +113,18 @@ public class Country {
     }
 
     public void setMyPercentInf() {
-        myPercentInf=myInfected/myPopulation;
+        myPercentInf = myInfected / myPopulation;
+    }
+
+    public void setMyDead(int myDead) {
+        this.myDead = myDead;
+    }
+
+    public int getMyDead() {
+        return myDead;
     }
 
     public String toString() {
-        return "Name is " + myName + " Population= " + myPopulation + " Infected= " + myInfected + " Hot Resistance= " + myHotRes + " Cold Resistance= " + myColdRes;
+        return "Name is= " + myName + " Population= " + myPopulation + " Infected= " + myInfected + " Death count= " + myDead + " Heat Resistance= " + myHotRes + " Cold Resistance= " + myColdRes;
     }
 }

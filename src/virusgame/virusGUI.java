@@ -32,7 +32,6 @@ public class virusGUI {
 
     public virusGUI(Country[] countries) {
 
-        int symptomUpgrade = 0;
         transmissionButton.setVisible(false);
 
 
@@ -41,7 +40,7 @@ public class virusGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 countryInfectedLabel.setText("Infected: " + countries[0].getMyInfected());
-                deadLabel.setText("Dead: ");
+                deadLabel.setText("Dead: " + countries[0].getMyDead());
                 coldResLabel.setText("Cold Resistance: " + countries[0].getMyColdRes());
                 heatResLabel.setText("Heat Resistance: " + countries[0].getMyHotRes());
                 popLabel.setText("Population: " + countries[0].getMyPopulation());
@@ -51,7 +50,7 @@ public class virusGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 countryInfectedLabel.setText("Infected: " + countries[1].getMyInfected());
-                deadLabel.setText("Dead: ");
+                deadLabel.setText("Dead: " + countries[1].getMyDead());
                 coldResLabel.setText("Cold Resistance: " + countries[1].getMyColdRes());
                 heatResLabel.setText("Heat Resistance: " + countries[1].getMyHotRes());
                 popLabel.setText("Population: " + countries[1].getMyPopulation());
@@ -61,7 +60,7 @@ public class virusGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 countryInfectedLabel.setText("Infected: " + countries[2].getMyInfected());
-                deadLabel.setText("Dead: ");
+                deadLabel.setText("Dead: " + countries[2].getMyDead());
                 coldResLabel.setText("Cold Resistance: " + countries[2].getMyColdRes());
                 heatResLabel.setText("Heat Resistance: " + countries[2].getMyHotRes());
                 popLabel.setText("Population: " + countries[2].getMyPopulation());
@@ -71,7 +70,7 @@ public class virusGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 countryInfectedLabel.setText("Infected: " + countries[3].getMyInfected());
-                deadLabel.setText("Dead: ");
+                deadLabel.setText("Dead: " + countries[3].getMyDead());
                 coldResLabel.setText("Cold Resistance: " + countries[3].getMyColdRes());
                 heatResLabel.setText("Heat Resistance: " + countries[3].getMyHotRes());
                 popLabel.setText("Population: " + countries[3].getMyPopulation());
@@ -81,7 +80,7 @@ public class virusGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 countryInfectedLabel.setText("Infected: " + countries[4].getMyInfected());
-                deadLabel.setText("Dead: ");
+                deadLabel.setText("Dead: " + countries[4].getMyDead());
                 coldResLabel.setText("Cold Resistance: " + countries[4].getMyColdRes());
                 heatResLabel.setText("Heat Resistance: " + countries[4].getMyHotRes());
                 popLabel.setText("Population: " + countries[4].getMyPopulation());
@@ -91,7 +90,7 @@ public class virusGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 countryInfectedLabel.setText("Infected: " + countries[5].getMyInfected());
-                deadLabel.setText("Dead: ");
+                deadLabel.setText("Dead: " + countries[5].getMyDead());
                 coldResLabel.setText("Cold Resistance: " + countries[5].getMyColdRes());
                 heatResLabel.setText("Heat Resistance: " + countries[5].getMyHotRes());
                 popLabel.setText("Population: " + countries[5].getMyPopulation());
@@ -101,16 +100,10 @@ public class virusGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 countryInfectedLabel.setText("Infected: " + countries[6].getMyInfected());
-                deadLabel.setText("Dead: ");
+                deadLabel.setText("Dead: " + countries[6].getMyDead());
                 coldResLabel.setText("Cold Resistance: " + countries[6].getMyColdRes());
                 heatResLabel.setText("Heat Resistance: " + countries[6].getMyHotRes());
                 popLabel.setText("Population: " + countries[6].getMyPopulation());
-            }
-        });
-        transmissionButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
             }
         });
         upgradesButton.addActionListener(new ActionListener() {

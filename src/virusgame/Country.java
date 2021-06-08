@@ -7,6 +7,7 @@ public class Country {
     private boolean myColdRes;
     private int myPopulation;
     private int myInfected;
+    private int myDead;
     private double myPercentInf;
 
     public Country() {
@@ -15,15 +16,17 @@ public class Country {
         myColdRes = false;
         myPopulation = 1;
         myInfected = 0;
+        myDead = 0;
         myPercentInf = myInfected / myPopulation;
     }
 
-    public Country(String name, boolean hot, boolean cold, int population, int infected) {
+    public Country(String name, boolean hot, boolean cold, int population, int infected, int dead) {
         myName = name;
         myHotRes = hot;
         myColdRes = cold;
         myPopulation = population;
         myInfected = infected;
+        myDead = dead;
         myPercentInf = myInfected / myPopulation;
     }
 
@@ -100,6 +103,14 @@ public class Country {
         this.myColdRes = myColdRes;
     }
 
+    public int getMyDead() {
+        return myDead;
+    }
+
+    public void setMyDead(int myDead) {
+        this.myDead = myDead;
+    }
+
     public void setMyInfected(int myInfected) {
         this.myInfected = myInfected;
     }
@@ -113,6 +124,6 @@ public class Country {
     }
 
     public String toString() {
-        return "Name is " + myName + " Population= " + myPopulation + " Infected= " + myInfected + " Hot Resistance= " + myHotRes + " Cold Resistance= " + myColdRes;
+        return "Name is " + myName + " Population= " + myPopulation + " Infected= " + myInfected + " My Dead= " + myDead + " Hot Resistance= " + myHotRes + " Cold Resistance= " + myColdRes;
     }
 }

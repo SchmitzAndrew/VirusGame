@@ -11,7 +11,5 @@ public class Main {
 
         virusGUI GUI = new virusGUI(countries);
         GUI.runGUI(countries);
-
-
     }
 }

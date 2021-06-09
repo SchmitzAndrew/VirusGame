@@ -11,9 +11,9 @@ public class Game {
     double myPeopleKilled;
     double myWorldPopulation;
     int myInfectedPopulation;
-    int myGameLength = 600;
+    int myGameLength = 300;
     int myCurrentGameLength = 0;
-    int myPoints=0;
+    int myPoints = 0;
     int pointsCounter;
     int tick;
     boolean loseCondition = false;
@@ -23,6 +23,7 @@ public class Game {
     Country[] countries;
 
     Timer timer = new Timer();
+
 
     public Game() {
 
@@ -42,7 +43,7 @@ public class Game {
                 int points = getPoints(findInfectedPopulation());
 
 
-                if(myCurrentGameLength == myGameLength) {
+                if (myCurrentGameLength == myGameLength) {
                     loseCondition = true;
                 }
 
@@ -55,11 +56,14 @@ public class Game {
                 System.out.println();
                 displayCountries(countries);
 
-                System.out.println(points);
-                tick ++;
+                getPoints(findInfectedPopulation());
+                setMyPoints(myPoints);
+                System.out.println(myPoints);
+                tick++;
 
+                //Decreased for testing
             }
-        }, 10000, 10000);
+        }, 5000, 5000);
     }
 
 
@@ -67,8 +71,8 @@ public class Game {
         countries = new Country[7];
         //Do not change population
         countries[0] = new Country("Brazil", false, false, 210_000_000, 10, 0);
-        countries[1] = new Country("USA", true, false, 320_000_000, 0, 0 );
-        countries[2] = new Country("Canada", false, true, 37_000_000, 0, 0 );
+        countries[1] = new Country("USA", true, false, 320_000_000, 0, 0);
+        countries[2] = new Country("Canada", false, true, 37_000_000, 0, 0);
         countries[3] = new Country("Greenland", false, true, 56_000, 0, 0);
         countries[4] = new Country("England", true, true, 66_000_000, 0, 0);
         countries[5] = new Country("China", false, false, 1_400_000_000, 0, 0);
@@ -96,12 +100,12 @@ public class Game {
     }
 
 
-    private void worldDeath(Disease disease)
-    {
+    private void worldDeath(Disease disease) {
         disease.setDeathRate();
-        for (int index=0; index <=5; index++)
-        {
-            countries[index].death(disease);
+        for (Country c : countries) {
+            if (c.getMyInfected() > 0) {
+                c.death(disease);
+            }
         }
     }
 
@@ -113,46 +117,52 @@ public class Game {
     }
 
     public int findWorldPopulation() {
-        myWorldPopulation=0;
+        myWorldPopulation = 0;
         for (Country c : countries) {
             myWorldPopulation += c.getMyPopulation();
         }
         return (int) myWorldPopulation;
     }
 
-    public int findInfectedPopulation()
-    {
-        myInfectedPopulation=0;
-        for(Country c : countries){
+    public int findInfectedPopulation() {
+        myInfectedPopulation = 0;
+        for (Country c : countries) {
             myInfectedPopulation += c.getMyInfected();
         }
         return myInfectedPopulation;
     }
 
-    public int getPoints(int infected){
-        if (infected > 100 && pointsCounter == 0){
-            myPoints ++;
-            pointsCounter ++;
-        }else if(infected > 10000 && pointsCounter == 1){
-            myPoints ++;
-            pointsCounter ++;
-        }else if(infected > 10000 && pointsCounter == 2){
-            myPoints ++;
-            pointsCounter ++;
-        }else if(infected > 50000 && pointsCounter == 3){
-            myPoints ++;
-            pointsCounter ++;
-        }else if (infected > 100000 && pointsCounter == 4){
-            myPoints ++;
-            pointsCounter ++;
+    public int getPoints(int infected) {
+        if (infected > 100 && pointsCounter == 0) {
+            myPoints++;
+            pointsCounter++;
+        } else if (infected > 10000 && pointsCounter == 1) {
+            myPoints++;
+            pointsCounter++;
+        } else if (infected > 10000 && pointsCounter == 2) {
+            myPoints++;
+            pointsCounter++;
+        } else if (infected > 50000 && pointsCounter == 3) {
+            myPoints++;
+            pointsCounter++;
+        } else if (infected > 100000 && pointsCounter == 4) {
+            myPoints++;
+            pointsCounter++;
         }
         return myPoints;
     }
 
 
-    public int myPointsDecrease()
-    {
-       return myPoints--;
+    public void myPointsDecrease() {
+        this.myPoints--;
+    }
+
+    public void setMyPoints(int myPoints) {
+        this.myPoints = myPoints;
+    }
+
+    public int getMyPoints() {
+        return myPoints;
     }
 }
 

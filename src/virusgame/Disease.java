@@ -179,17 +179,17 @@ public class Disease {
     }
 
     public void setDeathRate() {
-        this.myDeathRate = 5;
+        this.myDeathRate = 10;
         if (myCough)
-            myDeathRate += 10;
+            myDeathRate --;
         if (myHeadache)
-            myDeathRate += 10;
+            myDeathRate --;
         if (myRunnyNose)
-            myDeathRate += 10;
+            myDeathRate --;
         if (myFever)
-            myDeathRate += 10;
+            myDeathRate --;
         if (myVomiting)
-            myDeathRate += 10;
+            myDeathRate --;
     }
 
     public void setSpreadRate() {

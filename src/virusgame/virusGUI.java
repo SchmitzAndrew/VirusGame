@@ -40,9 +40,10 @@ public class virusGUI {
     private JLabel extinctionLabel;
     private JLabel worldPopulation;
     private JButton updateButton;
+    Disease disease;
 
 
-    public virusGUI(Country[] countries) {
+    public virusGUI(Country[] countries, Disease disease, Game game) {
         transmissionButton.setVisible(false);
         symptomButton.setVisible(false);
         coldUpgrade.setVisible(false);
@@ -184,8 +185,18 @@ public class virusGUI {
 
         updateButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent actionEvent) {
+                pointsLabel.setText("Points: " + game.getMyPoints());
+            }
+        });
 
+        coldUpgrade.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                if (disease.isMyColdResistance() && game.getMyPoints() >=1){
+                    disease.setMyColdResistance(true);
+                    game.myPointsDecrease();
+                }
             }
         });
     }
@@ -193,9 +204,9 @@ public class virusGUI {
 
 
 
-    public void runGUI(Country[] countries) {
+    public void runGUI(Country[] countries, Game game) {
         JFrame frame = new JFrame("It's Going to Schmitz");
-        frame.setContentPane(new virusGUI(countries).virusPanel);
+        frame.setContentPane(new virusGUI(countries, disease, game).virusPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);

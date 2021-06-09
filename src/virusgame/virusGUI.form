@@ -46,15 +46,6 @@
         </constraints>
         <properties/>
       </component>
-      <component id="ad158" class="javax.swing.JButton" binding="upgradesButton" default-binding="true">
-        <constraints>
-          <grid row="0" column="15" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="5" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <horizontalTextPosition value="0"/>
-          <text value="Upgrades"/>
-        </properties>
-      </component>
       <component id="1b350" class="javax.swing.JLabel" binding="pointsLabel">
         <constraints>
           <grid row="0" column="13" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
@@ -76,7 +67,7 @@
       </component>
       <hspacer id="43c98">
         <constraints>
-          <grid row="0" column="14" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="15" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
       </hspacer>
       <component id="d9d3a" class="javax.swing.JLabel" binding="cureLabel">
@@ -258,15 +249,24 @@
           <text value="Extinction: "/>
         </properties>
       </component>
+      <component id="ad158" class="javax.swing.JButton" binding="upgradesButton" default-binding="true">
+        <constraints>
+          <grid row="0" column="14" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="5" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <horizontalTextPosition value="0"/>
+          <text value="Upgrades"/>
+        </properties>
+      </component>
       <component id="6327f" class="javax.swing.JLabel" binding="worldPopulation">
         <constraints>
-          <grid row="1" column="15" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="14" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="World Population: "/>
         </properties>
       </component>
-      <component id="15d87" class="javax.swing.JButton" binding="updateButton">
+      <component id="7bbdf" class="javax.swing.JButton" binding="updateButton" default-binding="true">
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>

@@ -41,21 +41,27 @@ public class Country {
     //determines how fast the disease spreads outside the country
     public void spread(Disease disease) {
         if (compareResistance(disease)) {
-
-            int test = (int)((Math.random() * 10) + (1+(disease.getMySpreadRate() )/ 10) * (getMyInfected()));
-            if (test>=myPopulation) {
+            //Spread Rate 10, 20, 30, 40
+            int test = (int) ((Math.random() * 10) + (1 + (disease.getMySpreadRate() / 10)) * (getMyInfected()));
+            if (test >= myPopulation) {
                 setMyInfected(myPopulation);
-            }
-            else {
+            } else {
 
                 setMyInfected(test);
             }
         }
     }
-
+    int test = 0;
     //determines how many people die
     public void death(Disease disease) {
-        myPopulation-=((disease.getMyDeathRate()/100)*myInfected);
+        //My Death Rate: Starts at: 10-> goes down by 1 each upgrade
+        test += myInfected / disease.getMyDeathRate();
+        test += 10;
+        if (test >= myPopulation) {
+            setMyDead(myPopulation);
+        } else {
+            setMyDead(test);
+        }
     }
 
     //determines whether or not there are enough upgrades for it to work
@@ -120,7 +126,7 @@ public class Country {
     }
 
     public void setMyPercentInf() {
-        myPercentInf=myInfected/myPopulation;
+        myPercentInf = myInfected / myPopulation;
     }
 
     public String toString() {

@@ -5,6 +5,8 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
+
 public class virusGUI {
     private JPanel virusPanel;
     private JButton brazilButton;
@@ -28,11 +30,29 @@ public class virusGUI {
     private JLabel cureLabel;
     private JLabel popLabel;
     private JButton transmissionButton;
+    private JButton symptomButton;
+    private JLabel transmissionCostLabel;
+    private JLabel symptomCostLabel;
+    private JButton coldUpgrade;
+    private JButton heatButton;
+    private JLabel coldCost;
+    private JLabel heatCost;
+    private JLabel extinctionLabel;
+    private JLabel worldPopulation;
+    private JButton updateButton;
 
 
     public virusGUI(Country[] countries) {
-
         transmissionButton.setVisible(false);
+        symptomButton.setVisible(false);
+        coldUpgrade.setVisible(false);
+        heatButton.setVisible(false);
+        transmissionCostLabel.setVisible(false);
+        symptomCostLabel.setVisible(false);
+        coldCost.setVisible(false);
+        heatCost.setVisible(false);
+        cureBar.setMinimum(0);
+        cureBar.setMaximum(600);
 
 
 
@@ -106,18 +126,70 @@ public class virusGUI {
                 popLabel.setText("Population: " + countries[6].getMyPopulation());
             }
         });
+
         upgradesButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (transmissionButton.isVisible() == false) {
+                if (transmissionButton.isVisible()) {
+                    transmissionButton.setVisible(false);
+                }else if (!transmissionButton.isVisible()) {
                     transmissionButton.setVisible(true);
                 }
-                if (transmissionButton.isVisible() == true) {
-                    transmissionButton.setVisible(false);
+
+                if (symptomButton.isVisible()) {
+                    symptomButton.setVisible(false);
+                }else if (!symptomButton.isVisible()) {
+                    symptomButton.setVisible(true);
                 }
+
+                if (coldUpgrade.isVisible()) {
+                    coldUpgrade.setVisible(false);
+                }else if (!coldUpgrade.isVisible()) {
+                    coldUpgrade.setVisible(true);
+                }
+
+                if (heatButton.isVisible()) {
+                    heatButton.setVisible(false);
+                }else if (!heatButton.isVisible()) {
+                    heatButton.setVisible(true);
+                }
+
+                if (transmissionCostLabel.isVisible()) {
+                    transmissionCostLabel.setVisible(false);
+                }else if (!transmissionCostLabel.isVisible()) {
+                    transmissionCostLabel.setVisible(true);
+                }
+
+                if (symptomCostLabel.isVisible()) {
+                    symptomCostLabel.setVisible(false);
+                }else if (!symptomCostLabel.isVisible()) {
+                    symptomCostLabel.setVisible(true);
+                }
+
+                if (coldCost.isVisible()) {
+                    coldCost.setVisible(false);
+                }else if (!coldCost.isVisible()) {
+                    coldCost.setVisible(true);
+                }
+
+                if (heatCost.isVisible()) {
+                    heatCost.setVisible(false);
+                }else if (!heatCost.isVisible()) {
+                    heatCost.setVisible(true);
+                }
+
+
+            }
+        });
+
+        updateButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
             }
         });
     }
+
 
 
 
@@ -127,5 +199,6 @@ public class virusGUI {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
+
     }
 }

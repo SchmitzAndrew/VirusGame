@@ -45,7 +45,8 @@ public class Country {
             int test = (int)((Math.random() * 10) + (1+(disease.getMySpreadRate() )/ 10) * (getMyInfected()));
             if (test>=myPopulation) {
                 setMyInfected(myPopulation);
-            } else {
+            }
+            else {
 
                 setMyInfected(test);
             }
@@ -119,7 +120,7 @@ public class Country {
     }
 
     public void setMyPercentInf() {
-        myPercentInf= myInfected/myPopulation;
+        myPercentInf=myInfected/myPopulation;
     }
 
     public String toString() {

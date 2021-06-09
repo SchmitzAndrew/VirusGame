@@ -11,13 +11,14 @@ public class Game {
     double myPeopleKilled;
     double myWorldPopulation;
     int myInfectedPopulation;
-    int myCureProgress;
     int myGameLength = 600;
-
-
+    int myCurrentGameLength = 0;
     int myPoints=0;
     int pointsCounter;
     int tick;
+    boolean loseCondition = false;
+    boolean winCondition = false;
+
 
     Country[] countries;
 
@@ -32,21 +33,16 @@ public class Game {
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                int currentGameLength = 0;
-                currentGameLength += 10;
+                myCurrentGameLength += 10;
+
                 diseaseSpread(disease);
                 worldDeath(disease);
                 findWorldPopulation();
 
-                int points = getMyPoints(findInfectedPopulation());
-                if (currentGameLength < myGameLength) {
-                    myCureProgress = currentGameLength / myGameLength;
-                }
+                int points = getPoints(findInfectedPopulation());
 
-                boolean loseCondition = false;
-                boolean winCondition = true;
 
-                if(myCureProgress >= 1) {
+                if(myCurrentGameLength == myGameLength) {
                     loseCondition = true;
                 }
 
@@ -61,9 +57,11 @@ public class Game {
 
                 System.out.println(points);
                 tick ++;
+
             }
-        }, 1000, 10000);
+        }, 10000, 10000);
     }
+
 
     public Country[] createCountries() {
         countries = new Country[7];
@@ -77,6 +75,10 @@ public class Game {
         countries[6] = new Country("India", true, false, 1_360_000_000, 0, 0);
 
         return countries;
+    }
+
+    public int getMyCurrentGameLength() {
+        return myCurrentGameLength;
     }
 
     private void diseaseSpread(Disease disease) {
@@ -93,7 +95,9 @@ public class Game {
         }
     }
 
-    private void worldDeath(Disease disease) {
+
+    private void worldDeath(Disease disease)
+    {
         disease.setDeathRate();
         for (int index=0; index <=5; index++)
         {
@@ -116,7 +120,8 @@ public class Game {
         return (int) myWorldPopulation;
     }
 
-    public int findInfectedPopulation() {
+    public int findInfectedPopulation()
+    {
         myInfectedPopulation=0;
         for(Country c : countries){
             myInfectedPopulation += c.getMyInfected();
@@ -124,7 +129,7 @@ public class Game {
         return myInfectedPopulation;
     }
 
-    public int getMyPoints(int infected){
+    public int getPoints(int infected){
         if (infected > 100 && pointsCounter == 0){
             myPoints ++;
             pointsCounter ++;
@@ -143,7 +148,6 @@ public class Game {
         }
         return myPoints;
     }
-
 
 
     public int myPointsDecrease()

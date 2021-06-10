@@ -6,6 +6,7 @@ public class Country {
     private boolean myHotRes;
     private boolean myColdRes;
     private int myPopulation;
+    private int initialPop;
     private int myInfected;
     private int myDead;
     private double myPercentInf;
@@ -25,6 +26,7 @@ public class Country {
         myHotRes = hot;
         myColdRes = cold;
         myPopulation = population;
+        initialPop=population;
         myInfected = infected;
         myDead = dead;
         myPercentInf = myInfected / myPopulation;
@@ -51,11 +53,12 @@ public class Country {
             }
         }
     }
-    int test = 0;
+
     //determines how many people die
     int test;
     public void death(Disease disease) {
         //My Death Rate: Starts at: 10-> goes down by 1 each upgrade
+        test = 0;
         test += myInfected / disease.getMyDeathRate();
         if (test >= initialPop) {
             setMyDead(initialPop);

@@ -43,7 +43,6 @@ public class Game {
 
                 int points = getPoints(findInfectedPopulation());
 
-
                 if (myCurrentGameLength == myGameLength) {
                     loseCondition = true;
                 }
@@ -98,13 +97,16 @@ public class Game {
                 }
             }
         }
+        if (countries[6].getMyInfected() > 0 && countries[6].getMyInfected() < countries[6].getMyPopulation()){
+            countries[6].spread(disease);
+        }
     }
 
 
     private void worldDeath(Disease disease) {
         disease.setDeathRate();
         for (Country c : countries) {
-            if (c.getMyInfected() > 0) {
+            if (c.getMyInfected() > 0 && c.getMyDead()<c.getMyPopulation()) {
                 c.death(disease);
             }
         }

@@ -63,7 +63,7 @@ public class Game {
 
                 //Decreased for testing
             }
-        }, 5000, 5000);
+        }, 1000, 1000);
     }
 
 
@@ -132,7 +132,15 @@ public class Game {
         return myInfectedPopulation;
     }
 
-    public int getPoints(int infected) {
+    public long findTotalDeath() {
+        myDeadPopulation = 0;
+        for(Country c : countries) {
+            myDeadPopulation += c.getMyDead();
+        }
+        return myDeadPopulation;
+    }
+
+    public int getPoints(long infected) {
         if (infected > 100 && pointsCounter == 0) {
             myPoints++;
             pointsCounter++;

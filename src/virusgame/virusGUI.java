@@ -6,12 +6,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-
 public class virusGUI {
     private JPanel virusPanel;
     private JButton brazilButton;
-    private JProgressBar cureBar;
-    private JProgressBar infectedBar;
     private JLabel infectedLabel;
     private JLabel deadLabel;
     private JButton upgradesButton;
@@ -24,7 +21,6 @@ public class virusGUI {
     private JButton indiaButton;
     private JButton USAButton;
     private JLabel countryInfectedLabel;
-    private JProgressBar deadBar;
     private JLabel coldResLabel;
     private JLabel heatResLabel;
     private JLabel cureLabel;
@@ -133,13 +129,13 @@ public class virusGUI {
             public void actionPerformed(ActionEvent e) {
                 if (transmissionButton.isVisible()) {
                     transmissionButton.setVisible(false);
-                }else if (!transmissionButton.isVisible()) {
+                } else if (!transmissionButton.isVisible()) {
                     transmissionButton.setVisible(true);
                 }
 
                 if (symptomButton.isVisible()) {
                     symptomButton.setVisible(false);
-                }else if (!symptomButton.isVisible()) {
+                } else if (!symptomButton.isVisible()) {
                     symptomButton.setVisible(true);
                 }
 
@@ -157,13 +153,13 @@ public class virusGUI {
 
                 if (transmissionCostLabel.isVisible()) {
                     transmissionCostLabel.setVisible(false);
-                }else if (!transmissionCostLabel.isVisible()) {
+                } else if (!transmissionCostLabel.isVisible()) {
                     transmissionCostLabel.setVisible(true);
                 }
 
                 if (symptomCostLabel.isVisible()) {
                     symptomCostLabel.setVisible(false);
-                }else if (!symptomCostLabel.isVisible()) {
+                } else if (!symptomCostLabel.isVisible()) {
                     symptomCostLabel.setVisible(true);
                 }
 
@@ -196,6 +192,19 @@ public class virusGUI {
                 if (disease.isMyColdResistance() && game.getMyPoints() >=1){
                     disease.setMyColdResistance(true);
                     game.myPointsDecrease();
+                }
+            }
+        });
+
+        heatButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                if (game.getMyPoints() >= 1 && !disease.isMyHeatResistance() && !hotClick) {
+                    disease.setMyHeatResistance(true);
+                    game.myPointsDecrease();
+                    hotClick = true;
+                    heatButton.setVisible(false);
+                    heatCost.setVisible(false);
                 }
             }
         });

@@ -53,12 +53,12 @@ public class Country {
     }
     int test = 0;
     //determines how many people die
+    int test;
     public void death(Disease disease) {
         //My Death Rate: Starts at: 10-> goes down by 1 each upgrade
         test += myInfected / disease.getMyDeathRate();
-        test += 10;
-        if (test >= myPopulation) {
-            setMyDead(myPopulation);
+        if (test >= initialPop) {
+            setMyDead(initialPop);
         } else {
             setMyDead(test);
         }

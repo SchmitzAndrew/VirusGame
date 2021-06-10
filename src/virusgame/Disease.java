@@ -32,8 +32,7 @@ public class Disease {
     boolean myAnimal;
     boolean myIngestion;
 
-    public Disease ()
-    {
+    public Disease () {
 
     }
 

@@ -37,9 +37,12 @@ public class virusGUI {
     private JLabel worldPopulation;
     private JButton updateButton;
     Disease disease;
+    Boolean hotClick = false;
+    Boolean coldClick = false;
 
 
     public virusGUI(Country[] countries, Disease disease, Game game) {
+
         transmissionButton.setVisible(false);
         symptomButton.setVisible(false);
         coldUpgrade.setVisible(false);
@@ -48,10 +51,6 @@ public class virusGUI {
         symptomCostLabel.setVisible(false);
         coldCost.setVisible(false);
         heatCost.setVisible(false);
-        cureBar.setMinimum(0);
-        cureBar.setMaximum(600);
-
-
 
         brazilButton.addActionListener(new ActionListener() {
             @Override
@@ -141,13 +140,13 @@ public class virusGUI {
 
                 if (coldUpgrade.isVisible()) {
                     coldUpgrade.setVisible(false);
-                }else if (!coldUpgrade.isVisible()) {
+                } else if (!coldUpgrade.isVisible() && !coldClick) {
                     coldUpgrade.setVisible(true);
                 }
 
                 if (heatButton.isVisible()) {
                     heatButton.setVisible(false);
-                }else if (!heatButton.isVisible()) {
+                } else if (!heatButton.isVisible() && !hotClick) {
                     heatButton.setVisible(true);
                 }
 
@@ -165,13 +164,13 @@ public class virusGUI {
 
                 if (coldCost.isVisible()) {
                     coldCost.setVisible(false);
-                }else if (!coldCost.isVisible()) {
+                } else if (!coldCost.isVisible() && !coldClick) {
                     coldCost.setVisible(true);
                 }
 
                 if (heatCost.isVisible()) {
                     heatCost.setVisible(false);
-                }else if (!heatCost.isVisible()) {
+                } else if (!heatCost.isVisible() && !hotClick) {
                     heatCost.setVisible(true);
                 }
 
@@ -182,16 +181,25 @@ public class virusGUI {
         updateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+                double minutes = game.getMyCurrentGameLength() / 60;
+
                 pointsLabel.setText("Points: " + game.getMyPoints());
+                infectedLabel.setText("Infected: " + game.findInfectedPopulation());
+                extinctionLabel.setText("Dead: " + game.findTotalDeath());
+                cureLabel.setText("Cure: " + minutes + " / 5 minutes");
             }
         });
 
         coldUpgrade.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                if (disease.isMyColdResistance() && game.getMyPoints() >=1){
+                if (game.getMyPoints() >= 2 && disease.isMyColdResistance() && !coldClick) {
                     disease.setMyColdResistance(true);
                     game.myPointsDecrease();
+                    game.myPointsDecrease();
+                    coldClick = true;
+                    coldUpgrade.setVisible(false);
+                    coldCost.setVisible(false);
                 }
             }
         });
@@ -208,12 +216,12 @@ public class virusGUI {
                 }
             }
         });
+
+
     }
 
 
-
-
-    public void runGUI(Country[] countries, Game game) {
+    public void runGUI(Country[] countries, Disease disease, Game game) {
         JFrame frame = new JFrame("It's Going to Schmitz");
         frame.setContentPane(new virusGUI(countries, disease, game).virusPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

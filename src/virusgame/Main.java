@@ -10,7 +10,7 @@ public class Main {
         game.gameTimer(disease);
 
         virusGUI GUI = new virusGUI(countries, disease, game);
-        GUI.runGUI(countries, game);
+        GUI.runGUI(countries, disease, game);
 
 
 

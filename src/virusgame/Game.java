@@ -10,7 +10,8 @@ public class Game {
 
     double myPeopleKilled;
     double myWorldPopulation;
-    int myInfectedPopulation;
+    long myInfectedPopulation;
+    long myDeadPopulation;
     int myGameLength = 300;
     int myCurrentGameLength = 0;
     int myPoints = 0;
@@ -34,7 +35,7 @@ public class Game {
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                myCurrentGameLength += 10;
+                myCurrentGameLength += 1;
 
                 diseaseSpread(disease);
                 worldDeath(disease);
@@ -124,7 +125,7 @@ public class Game {
         return (int) myWorldPopulation;
     }
 
-    public int findInfectedPopulation() {
+    public long findInfectedPopulation() {
         myInfectedPopulation = 0;
         for (Country c : countries) {
             myInfectedPopulation += c.getMyInfected();

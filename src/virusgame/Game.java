@@ -1,15 +1,12 @@
 package virusgame;
 
-import virusgame.Country;
-import virusgame.Disease;
-
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class Game {
 
     double myPeopleKilled;
-    double myWorldPopulation;
+    long myWorldPopulation;
     long myInfectedPopulation;
     long myDeadPopulation;
     int myGameLength = 300;
@@ -35,7 +32,7 @@ public class Game {
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                myCurrentGameLength += 1;
+                myCurrentGameLength += 5;
 
                 diseaseSpread(disease);
                 worldDeath(disease);
@@ -47,7 +44,7 @@ public class Game {
                     loseCondition = true;
                 }
 
-                if (myWorldPopulation <= 0) {
+                if (findCurrentAlive() <= 0) {
                     winCondition = true;
                 }
 
@@ -59,11 +56,11 @@ public class Game {
                 getPoints(findInfectedPopulation());
                 setMyPoints(myPoints);
                 System.out.println(myPoints);
+                System.out.println(findWorldPopulation());
                 tick++;
 
-                //Decreased for testing
             }
-        }, 1000, 1000);
+        }, 5000, 5000);
     }
 
 
@@ -80,6 +77,10 @@ public class Game {
 
         return countries;
     }
+
+    public boolean getWinCondition() {return winCondition;}
+
+    public boolean getLoseCondition() {return loseCondition;}
 
     public int getMyCurrentGameLength() {
         return myCurrentGameLength;
@@ -119,12 +120,12 @@ public class Game {
         System.out.println();
     }
 
-    public int findWorldPopulation() {
+    public long findWorldPopulation() {
         myWorldPopulation = 0;
         for (Country c : countries) {
             myWorldPopulation += c.getMyPopulation();
         }
-        return (int) myWorldPopulation;
+        return myWorldPopulation;
     }
 
     public long findInfectedPopulation() {
@@ -141,6 +142,10 @@ public class Game {
             myDeadPopulation += c.getMyDead();
         }
         return myDeadPopulation;
+    }
+
+    public long findCurrentAlive() {
+        return (findWorldPopulation() - findTotalDeath());
     }
 
     public int getPoints(long infected) {
@@ -160,6 +165,33 @@ public class Game {
             myPoints++;
             pointsCounter++;
         }
+        else if (infected > 500000 && pointsCounter == 5) {
+            myPoints++;
+            pointsCounter++;
+        }
+        else if (infected > 500000 && pointsCounter == 6) {
+            myPoints++;
+            pointsCounter++;
+        }
+        else if (infected > 1000000 && pointsCounter == 7) {
+            myPoints++;
+            myPoints++;
+            pointsCounter++;
+        }
+        else if (infected > 100000000 && pointsCounter == 8) {
+            myPoints++;
+            myPoints++;
+            myPoints++;
+            pointsCounter++;
+        }
+        else if (infected > 1000000000 && pointsCounter == 9) {
+            myPoints++;
+            myPoints++;
+            myPoints++;
+            myPoints++;
+            pointsCounter++;
+        }
+
         return myPoints;
     }
 

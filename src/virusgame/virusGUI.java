@@ -39,6 +39,10 @@ public class virusGUI {
     Disease disease;
     Boolean hotClick = false;
     Boolean coldClick = false;
+    Boolean maxTransmission = false;
+    Boolean maxSymptom = false;
+    int transmissionCnt = 0;
+    int symptomCnt = 0;
 
 
     public virusGUI(Country[] countries, Disease disease, Game game) {
@@ -128,13 +132,13 @@ public class virusGUI {
             public void actionPerformed(ActionEvent e) {
                 if (transmissionButton.isVisible()) {
                     transmissionButton.setVisible(false);
-                } else if (!transmissionButton.isVisible()) {
+                } else if (!transmissionButton.isVisible() && !maxTransmission) {
                     transmissionButton.setVisible(true);
                 }
 
                 if (symptomButton.isVisible()) {
                     symptomButton.setVisible(false);
-                } else if (!symptomButton.isVisible()) {
+                } else if (!symptomButton.isVisible() && !maxSymptom) {
                     symptomButton.setVisible(true);
                 }
 
@@ -152,13 +156,13 @@ public class virusGUI {
 
                 if (transmissionCostLabel.isVisible()) {
                     transmissionCostLabel.setVisible(false);
-                } else if (!transmissionCostLabel.isVisible()) {
+                } else if (!transmissionCostLabel.isVisible() && !maxTransmission) {
                     transmissionCostLabel.setVisible(true);
                 }
 
                 if (symptomCostLabel.isVisible()) {
                     symptomCostLabel.setVisible(false);
-                } else if (!symptomCostLabel.isVisible()) {
+                } else if (!symptomCostLabel.isVisible() && !maxSymptom) {
                     symptomCostLabel.setVisible(true);
                 }
 
@@ -182,11 +186,13 @@ public class virusGUI {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 double minutes = game.getMyCurrentGameLength() / 60;
+                System.out.println(game.getMyCurrentGameLength());
 
                 pointsLabel.setText("Points: " + game.getMyPoints());
                 infectedLabel.setText("Infected: " + game.findInfectedPopulation());
                 extinctionLabel.setText("Dead: " + game.findTotalDeath());
                 cureLabel.setText("Cure: " + minutes + " / 5 minutes");
+                worldPopulation.setText("Population: "  + (game.findWorldPopulation() - game.findTotalDeath()));
             }
         });
 
@@ -217,7 +223,149 @@ public class virusGUI {
             }
         });
 
+        transmissionButton.setText("Air");
+        transmissionCostLabel.setText("Cost: 1");
 
+        transmissionButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (transmissionCnt < 5) {
+
+                    if(transmissionCnt == 0 && game.getMyPoints() >= 1) {
+                        game.myPointsDecrease();
+                        disease.setMyAir(true);
+                        transmissionCnt++;
+
+                    }
+                    if (transmissionCnt == 1 && game.getMyPoints() >= 2) {
+                        game.myPointsDecrease();
+                        game.myPointsDecrease();
+                        disease.setMyBlood(true);
+                        transmissionCnt++;
+
+                    }
+                    if(transmissionCnt == 2 && game.getMyPoints() >= 3) {
+                        game.myPointsDecrease();
+                        game.myPointsDecrease();
+                        game.myPointsDecrease();
+                        disease.setMyDroplet(true);
+                        transmissionCnt++;
+
+                    }
+                    if(transmissionCnt == 3 && game.getMyPoints() >= 4) {
+                        game.myPointsDecrease();
+                        game.myPointsDecrease();
+                        game.myPointsDecrease();
+                        game.myPointsDecrease();
+                        disease.setMyAnimal(true);
+                        transmissionCnt++;
+
+                    }
+                    if(transmissionCnt == 4 && game.getMyPoints() >= 5) {
+                        game.myPointsDecrease();
+                        game.myPointsDecrease();
+                        game.myPointsDecrease();
+                        game.myPointsDecrease();
+                        game.myPointsDecrease();
+                        disease.setMyIngestion(true);
+                        transmissionCnt++;
+                    }
+
+                    if (transmissionCnt == 1) {
+                        transmissionButton.setText("Blood");
+                        transmissionCostLabel.setText("Cost: 2");
+                    }
+                    if (transmissionCnt == 2) {
+                        transmissionButton.setText("Droplet");
+                        transmissionCostLabel.setText("Cost: 3");
+                    }
+                    if (transmissionCnt == 3) {
+                        transmissionButton.setText("Animal");
+                        transmissionCostLabel.setText("Cost: 4");
+                    }
+                    if (transmissionCnt == 4) {
+                        transmissionButton.setText("Ingestion");
+                        transmissionCostLabel.setText("Cost: 5");
+                    }
+                }else {
+                    transmissionButton.setVisible(false);
+                    transmissionCostLabel.setVisible(false);
+                    maxTransmission = true;
+                }
+            }
+        });
+
+        symptomButton.setText("Runny Nose");
+        symptomCostLabel.setText("Cost: 1");
+
+        symptomButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (symptomCnt < 5) {
+
+                    if(symptomCnt == 0 && game.getMyPoints() >= 1) {
+                        game.myPointsDecrease();
+                        disease.setMyRunnyNose(true);
+                        symptomCnt++;
+                    }
+                    if (symptomCnt == 1 && game.getMyPoints() >= 2) {
+                        game.myPointsDecrease();
+                        game.myPointsDecrease();
+                        disease.setMyCough(true);
+                        symptomCnt++;
+
+                    }
+                    if(symptomCnt == 2 && game.getMyPoints() >= 3) {
+                        game.myPointsDecrease();
+                        game.myPointsDecrease();
+                        game.myPointsDecrease();
+                        disease.setMyFever(true);
+                        symptomCnt++;
+
+                    }
+                    if(symptomCnt == 3 && game.getMyPoints() >= 4) {
+                        game.myPointsDecrease();
+                        game.myPointsDecrease();
+                        game.myPointsDecrease();
+                        game.myPointsDecrease();
+                        disease.setMyHeadache(true);
+                        symptomCnt++;
+
+                    }
+                    if(symptomCnt == 4 && game.getMyPoints() >= 5) {
+                        game.myPointsDecrease();
+                        game.myPointsDecrease();
+                        game.myPointsDecrease();
+                        game.myPointsDecrease();
+                        game.myPointsDecrease();
+                        disease.setMyVomiting(true);
+                        disease.setMyIngestion(true);
+                        symptomCnt++;
+                    }
+
+                    if (symptomCnt == 1) {
+                        symptomButton.setText("Cough");
+                        symptomCostLabel.setText("Cost: 2");
+                    }
+                    if (symptomCnt == 2) {
+                        symptomButton.setText("Fever");
+                        symptomCostLabel.setText("Cost: 3");
+                    }
+                    if (symptomCnt == 3) {
+                        symptomButton.setText("Headache");
+                        symptomCostLabel.setText("Cost: 4");
+                    }
+                    if (symptomCnt == 4) {
+                        symptomButton.setText("Vomiting");
+                        symptomCostLabel.setText("Cost: 5");
+                    }
+                }else {
+                    symptomButton.setVisible(false);
+                    symptomCostLabel.setVisible(false);
+                    maxSymptom = true;
+                }
+            }
+        });
     }
 
 

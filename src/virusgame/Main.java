@@ -12,7 +12,9 @@ public class Main {
         virusGUI GUI = new virusGUI(countries, disease, game);
         GUI.runGUI(countries, disease, game);
 
+        if (game.findTotalDeath() - game.findWorldPopulation() == 0) {
 
+        }
 
     }
 }

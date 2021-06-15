@@ -376,5 +376,10 @@ public class virusGUI {
         frame.pack();
         frame.setVisible(true);
 
+        if (game.findCurrentAlive() == 0) {
+            frame.dispose();
+        }
+
     }
+
 }

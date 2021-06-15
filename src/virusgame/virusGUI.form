@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="virusgame.virusGUI">
-  <grid id="27dc6" binding="virusPanel" layout-manager="GridLayoutManager" row-count="8" column-count="16" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="virusPanel" layout-manager="GridLayoutManager" row-count="7" column-count="17" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="1971" height="1067"/>
+      <xy x="20" y="20" width="4172" height="1727"/>
     </constraints>
     <properties/>
     <border type="none"/>
     <children>
       <component id="ac476" class="javax.swing.JButton" binding="brazilButton" default-binding="true">
         <constraints>
-          <grid row="2" column="1" row-span="6" col-span="12" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="3" row-span="5" col-span="12" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <horizontalAlignment value="0"/>
@@ -21,30 +21,22 @@
       </component>
       <hspacer id="64370">
         <constraints>
-          <grid row="0" column="9" row-span="1" col-span="4" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+          <grid row="0" column="11" row-span="1" col-span="4" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="14" height="43"/>
           </grid>
         </constraints>
       </hspacer>
       <component id="ccfe3" class="javax.swing.JLabel" binding="infectedLabel">
         <constraints>
-          <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Infected:"/>
         </properties>
       </component>
-      <component id="1b350" class="javax.swing.JLabel" binding="pointsLabel">
-        <constraints>
-          <grid row="0" column="14" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Points: "/>
-        </properties>
-      </component>
       <component id="8d9ef" class="javax.swing.JButton" binding="canadaButton" default-binding="true">
         <constraints>
-          <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="3" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <horizontalAlignment value="0"/>
@@ -55,7 +47,7 @@
       </component>
       <component id="d9d3a" class="javax.swing.JLabel" binding="cureLabel">
         <constraints>
-          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Cure:"/>
@@ -63,7 +55,7 @@
       </component>
       <component id="d4663" class="javax.swing.JButton" binding="chinaButton" default-binding="true">
         <constraints>
-          <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="5" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="5" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="5" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <horizontalTextPosition value="0"/>
@@ -71,29 +63,9 @@
           <text value="China"/>
         </properties>
       </component>
-      <component id="1d186" class="javax.swing.JButton" binding="greenlandButton" default-binding="true">
-        <constraints>
-          <grid row="2" column="14" row-span="2" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <horizontalTextPosition value="0"/>
-          <icon value="virusgame/images/greenland.png"/>
-          <text value="Greenland"/>
-        </properties>
-      </component>
-      <component id="981fe" class="javax.swing.JButton" binding="englandButton" default-binding="true">
-        <constraints>
-          <grid row="4" column="14" row-span="2" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <horizontalTextPosition value="0"/>
-          <icon value="virusgame/images/england.png"/>
-          <text value="England"/>
-        </properties>
-      </component>
       <component id="6662c" class="javax.swing.JButton" binding="indiaButton" default-binding="true">
         <constraints>
-          <grid row="4" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="2" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="3" column="12" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="2" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <horizontalTextPosition value="0"/>
@@ -103,7 +75,7 @@
       </component>
       <component id="38cdb" class="javax.swing.JLabel" binding="countryInfectedLabel">
         <constraints>
-          <grid row="2" column="0" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Infected: "/>
@@ -111,7 +83,7 @@
       </component>
       <component id="55abf" class="javax.swing.JLabel" binding="deadLabel">
         <constraints>
-          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="3" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Dead:"/>
@@ -119,7 +91,7 @@
       </component>
       <component id="4701d" class="javax.swing.JLabel" binding="heatResLabel">
         <constraints>
-          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="5" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Heat Resistance:"/>
@@ -127,7 +99,7 @@
       </component>
       <component id="8be8a" class="javax.swing.JLabel" binding="coldResLabel">
         <constraints>
-          <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="6" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Cold Resistance:"/>
@@ -135,7 +107,7 @@
       </component>
       <component id="ecc73" class="javax.swing.JButton" binding="USAButton" default-binding="true">
         <constraints>
-          <grid row="2" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <horizontalTextPosition value="0"/>
@@ -147,7 +119,7 @@
       </component>
       <component id="6582b" class="javax.swing.JLabel" binding="popLabel">
         <constraints>
-          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="4" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Population:"/>
@@ -155,7 +127,7 @@
       </component>
       <component id="98c2c" class="javax.swing.JButton" binding="transmissionButton">
         <constraints>
-          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Transmission"/>
@@ -163,7 +135,7 @@
       </component>
       <component id="2ffa9" class="javax.swing.JLabel" binding="transmissionCostLabel">
         <constraints>
-          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <horizontalTextPosition value="0"/>
@@ -172,7 +144,7 @@
       </component>
       <component id="86a0c" class="javax.swing.JButton" binding="symptomButton">
         <constraints>
-          <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Symptom"/>
@@ -180,7 +152,7 @@
       </component>
       <component id="6bfe7" class="javax.swing.JButton" binding="coldUpgrade">
         <constraints>
-          <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Cold Resistance"/>
@@ -188,7 +160,7 @@
       </component>
       <component id="8be80" class="javax.swing.JButton" binding="heatButton">
         <constraints>
-          <grid row="1" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Heat Resistance"/>
@@ -196,7 +168,7 @@
       </component>
       <component id="42f0f" class="javax.swing.JLabel" binding="coldCost">
         <constraints>
-          <grid row="1" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Cost: 2"/>
@@ -204,7 +176,7 @@
       </component>
       <component id="ff8e4" class="javax.swing.JLabel" binding="heatCost">
         <constraints>
-          <grid row="1" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Cost: 1 "/>
@@ -212,7 +184,7 @@
       </component>
       <component id="1a55d" class="javax.swing.JLabel" binding="symptomCostLabel">
         <constraints>
-          <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Cost:"/>
@@ -220,31 +192,59 @@
       </component>
       <component id="d97da" class="javax.swing.JLabel" binding="extinctionLabel">
         <constraints>
-          <grid row="0" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Dead: "/>
         </properties>
       </component>
-      <component id="6327f" class="javax.swing.JLabel" binding="worldPopulation">
-        <constraints>
-          <grid row="1" column="15" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="World Population: "/>
-        </properties>
-      </component>
       <component id="7bbdf" class="javax.swing.JButton" binding="updateButton" default-binding="true">
         <constraints>
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Update"/>
         </properties>
       </component>
+      <component id="6327f" class="javax.swing.JLabel" binding="worldPopulation">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="World Population: "/>
+        </properties>
+      </component>
+      <component id="1b350" class="javax.swing.JLabel" binding="pointsLabel">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Points: "/>
+        </properties>
+      </component>
+      <component id="1d186" class="javax.swing.JButton" binding="greenlandButton" default-binding="true">
+        <constraints>
+          <grid row="2" column="16" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <horizontalTextPosition value="0"/>
+          <icon value="virusgame/images/greenland.png"/>
+          <text value="Greenland"/>
+        </properties>
+      </component>
+      <component id="981fe" class="javax.swing.JButton" binding="englandButton" default-binding="true">
+        <constraints>
+          <grid row="3" column="16" row-span="2" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <horizontalTextPosition value="0"/>
+          <icon value="virusgame/images/england.png"/>
+          <text value="England"/>
+        </properties>
+      </component>
       <component id="ad158" class="javax.swing.JButton" binding="upgradesButton" default-binding="true">
         <constraints>
-          <grid row="0" column="13" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="5" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="15" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="5" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <horizontalTextPosition value="0"/>

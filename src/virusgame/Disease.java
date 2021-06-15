@@ -2,19 +2,19 @@ package virusgame;
 
 public class Disease {
 
-    //virusgame.Disease Name Determined by User
+    // Disease Name Determined by User
     String myName;
 
     //Spread and Death Rate
     int mySpreadRate;
     int myDeathRate;
 
-    //Upgrades
+    //Upgrades, that determine spreadability of disease
     boolean myColdResistance;
     boolean myHeatResistance;
-    boolean myCureResistance;
 
-    //Symptoms
+
+    //Symptoms, that contribute to death rate of disease
     boolean myRunnyNose;
     boolean myCough;
     boolean myFever;
@@ -22,25 +22,40 @@ public class Disease {
     boolean myVomiting;
     boolean myDeath;
 
-    //Transmission
+    //Transmission, that contribute to spread rate of disease
     boolean myAir;
     boolean myBlood;
     boolean myDroplet;
     boolean myAnimal;
     boolean myIngestion;
 
-
-    public Disease () {
-
+// default constructor
+    public Disease() {
+        myName="";
+        mySpreadRate=0;
+        myDeathRate=0;
+        myColdResistance=false;
+        myHeatResistance=false;
+        this.myRunnyNose = false;
+        this.myCough = false;
+        this.myFever = false;
+        this.myHeadache = false;
+        this.myVomiting = false;
+        this.myDeath = false;
+        this.myAir = false;
+        this.myBlood = false;
+        this.myDroplet = false;
+        this.myAnimal = false;
+        this.myIngestion = false;
     }
 
-    public Disease(String name, int mySpreadRate, int myDeathRate, boolean myColdResistance, boolean myHeatResistance, boolean myCureResistance, boolean myRunnyNose, boolean myCough, boolean myFever, boolean myHeadache, boolean myVomiting, boolean myDeath, boolean myAir, boolean myBlood, boolean myDroplet, boolean myAnimal, boolean myIngestion) {
+    //constructor with parameters to set every instance variable of disease.
+    public Disease(String name, int mySpreadRate, int myDeathRate, boolean myColdResistance, boolean myHeatResistance, boolean myRunnyNose, boolean myCough, boolean myFever, boolean myHeadache, boolean myVomiting, boolean myDeath, boolean myAir, boolean myBlood, boolean myDroplet, boolean myAnimal, boolean myIngestion) {
         this.myName = name;
         this.mySpreadRate = mySpreadRate;
         this.myDeathRate = myDeathRate;
         this.myColdResistance = myColdResistance;
         this.myHeatResistance = myHeatResistance;
-        this.myCureResistance = myCureResistance;
         this.myRunnyNose = myRunnyNose;
         this.myCough = myCough;
         this.myFever = myFever;
@@ -54,11 +69,7 @@ public class Disease {
         this.myIngestion = myIngestion;
     }
 
-    //This is good non-repetitive code
-    //Thank you to IntelliJ's generate feature
-
-
-
+    //set and get methods for evey instance variable
     public int getMySpreadRate() {
         return mySpreadRate;
     }
@@ -79,10 +90,9 @@ public class Disease {
         return myHeatResistance;
     }
 
-    public void setMyHeatResistance(boolean myHeatResistance) {
+    public void  setMyHeatResistance(boolean myHeatResistance) {
         this.myHeatResistance = myHeatResistance;
     }
-
 
     public boolean isMyRunnyNose() {
         return myRunnyNose;
@@ -170,6 +180,10 @@ public class Disease {
         this.myIngestion = myIngestion;
     }
 
+    /* method to determine death rate of disease based on what symptom upgrades it has
+    * death rate is used in a formula of the country class in the denominator, so it decreases as symptoms
+    * become worse.
+    */
     public void setDeathRate() {
         this.myDeathRate = 10;
         if (myCough)
@@ -184,6 +198,10 @@ public class Disease {
             myDeathRate --;
     }
 
+    /*
+    * method to determine spread rate of disease based on the transmission upgrades it has
+    * used as a multiplier in a formula from the country class
+     */
     public void setSpreadRate() {
         this.mySpreadRate = 10;
         if (myAnimal) {

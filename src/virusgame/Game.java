@@ -34,6 +34,7 @@ public class Game {
             public void run() {
                 myCurrentGameLength += 5;
 
+
                 diseaseSpread(disease);
                 worldDeath(disease);
                 findWorldPopulation();
@@ -55,8 +56,9 @@ public class Game {
 
                 getPoints(findInfectedPopulation());
                 setMyPoints(myPoints);
-                System.out.println(myPoints);
-                System.out.println(findWorldPopulation());
+                System.out.println("points="+myPoints);
+                System.out.println("World population="+findWorldPopulation());
+
                 tick++;
 
             }
@@ -92,7 +94,7 @@ public class Game {
             if (countries[index].getMyInfected() > 0 && countries[index].getMyInfected() < countries[index].getMyPopulation()) {
 
                 countries[index].spread(disease);
-                if (countries[index + 1].getMyInfected() == 0.0 && countries[index + 1].getMyInfected() < countries[index + 1].getMyPopulation()) {
+                if ( countries[index + 1].getMyInfected() == 0.0 && countries[index + 1].getMyInfected() < countries[index + 1].getMyPopulation()) {
 
                     countries[index + 1].spread(disease);
                 }

@@ -1,6 +1,7 @@
 package virusgame;
 
 public class Country {
+    //instance variables for attributes of a country
     private final String myName;
 
     private boolean myHotRes;
@@ -26,7 +27,7 @@ public class Country {
         myHotRes = hot;
         myColdRes = cold;
         myPopulation = population;
-        initialPop=population;
+        initialPop = population;
         myInfected = infected;
         myDead = dead;
         myPercentInf = myInfected / myPopulation;
@@ -56,6 +57,7 @@ public class Country {
 
     //determines how many people die
     int test = 0;
+
     public void death(Disease disease) {
         //My Death Rate: Starts at: 10-> goes down by 1 each upgrade
         test += myInfected / disease.getMyDeathRate();
@@ -69,23 +71,30 @@ public class Country {
     //determines whether or not there are enough upgrades for it to work
     private boolean compareResistance(Disease disease) {
         if (myColdRes && myHotRes) {
-            if (disease.isMyColdResistance() && disease.isMyHeatResistance())
+            if (disease.isMyColdResistance() && disease.isMyHeatResistance()) {
                 return true;
-            else
-                return false;
-        } else if (myColdRes) {
+            }
+            else return false;
+        } else if (myColdRes && !myHotRes) {
             if (disease.isMyColdResistance()) {
                 return true;
-            } else
-                return false;
-        } else if (myHotRes) {
-            if (disease.isMyHeatResistance())
+            }
+            else return false;
+        } else if (myHotRes && !myColdRes) {
+            if (disease.isMyHeatResistance()) {
                 return true;
-            else
+            }
+            else{
                 return false;
-        } else
+            }
+        } else if (!myHotRes && !myColdRes) {
             return true;
+        }
+        else{
+            return false;
+        }
     }
+
 
     public long getMyPopulation() {
         return myPopulation;
